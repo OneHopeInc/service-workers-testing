@@ -1,15 +1,13 @@
 {
-  "name": "service-workers-testing",
-  "version": "1.0.0",
-  "description": "A project for testing service workers with Cloudflare Workers",
-  "main": "service-worker.js",
-  "scripts": {
-    "start": "wrangler dev",
-    "deploy": "wrangler publish"
-  },
-  "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "wrangler": "^4.23.0"
-  }
+	"name": "service-workers-testing",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev",
+		"start": "wrangler dev"
+	},
+	"devDependencies": {
+		"wrangler": "^4.23.0"
+	}
 }
