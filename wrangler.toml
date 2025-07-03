@@ -1,10 +1,10 @@
 name = "service-workers-testing"
 main = "service-worker.js"
-compatibility_date = "2024-06-01"
+compatibility_date = "2025-07-03"
 
 [site]
 bucket = "./public"
 entry-point = "."
 
 [build]
-upload.format = "service-worker" 
+upload = { format = "service-worker" }
