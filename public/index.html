@@ -3,10 +3,48 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Hello, World!</title>
+		<title>PWA Multi-View Demo</title>
+		<link rel="stylesheet" href="/style.css">
+		<style>
+			.view { display: none; }
+			.view.active { display: block; }
+			.nav-btns { margin: 1rem 0; text-align: center; }
+			.nav-btns button { margin: 0 0.5rem; }
+		</style>
 	</head>
 	<body>
-		<h1 id="heading">Hello, World!</h1>
-		<p>This page comes from a static asset stored at `public/index.html` as configured in `wrangler.jsonc`.</p>
+		<h1 id="heading">PWA Multi-View Demo</h1>
+		<div class="nav-btns">
+			<button onclick="showView(1)">View 1</button>
+			<button onclick="showView(2)">View 2</button>
+			<button onclick="showView(3)">View 3</button>
+			<button onclick="showView(4)">View 4</button>
+			<button onclick="showView(5)">View 5</button>
+		</div>
+		<div id="view1" class="view active"><h2>View 1</h2><p>This is the first view (Home Layer).</p></div>
+		<div id="view2" class="view"><h2>View 2</h2><p>This is the second view.</p></div>
+		<div id="view3" class="view"><h2>View 3</h2><p>This is the third view.</p></div>
+		<div id="view4" class="view"><h2>View 4</h2><p>This is the fourth view.</p></div>
+		<div id="view5" class="view"><h2>View 5</h2><p>This is the fifth view.</p></div>
+		<script>
+			function showView(n) {
+				for (let i = 1; i <= 5; i++) {
+					document.getElementById('view'+i).classList.remove('active');
+				}
+				document.getElementById('view'+n).classList.add('active');
+			}
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', function() {
+					navigator.serviceWorker.register('/service-worker.js')
+						.then(function(registration) {
+							console.log('ServiceWorker registration successful with scope: ', registration.scope);
+						}, function(err) {
+							console.log('ServiceWorker registration failed: ', err);
+						});
+				});
+			}
+		</script>
 	</body>
 </html>
+
+
