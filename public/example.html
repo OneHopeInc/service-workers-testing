@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minimal Reader</title>
+  <link rel="stylesheet" href="css/normalize_clean.css">
+  <link rel="stylesheet" href="css/reader.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/scrollpanel.css">
+  <link rel="stylesheet" href="css/minimap.css">
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="minimap" id="minimap"></div>
+
+  <nav class="navbar" id="navbar">
+    <a href="#" class="logo">CleanReader</a>
+    <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
+    <div class="menu" id="topMenu">
+      <a href="#" class="active" aria-current="page">Home</a>
+      <a href="#">Library</a>
+      </div>
+    </div>
+  </nav>
+  <main id="article">
+
+    <h1>Welcome to the Clean Reader Showcase</h1>
+    <p>This demo displays the various UI components and typography styles supported by the Clean Reader CSS.</p>
+
+    <h2>Typography</h2>
+    <p>Here's a paragraph with some <a href="#">inline links</a> and <code>inline code</code> to demonstrate text styling. You can see how headings, lists, and other elements flow naturally with this design.</p>
+    <ul>
+      <li>Unordered item one</li>
+      <li>Item two</li>
+      <li>Item three</li>
+    </ul>
+    <ol>
+      <li>First</li>
+      <li>Second</li>
+      <li>Third</li>
+    </ol>
+
+    <h3>Blockquote</h3>
+    <blockquote>
+      "Design is not just what it looks like and feels like. Design is how it works." – Steve Jobs
+    </blockquote>
+
+    <h3>Code Block</h3>
+    <pre><code>function greet(name) {
+  return `Hello, ${name}!`;
+ }</code></pre>
+
+    <h2>Callout</h2>
+    <div class="callout">
+      <strong>Note:</strong>
+      This is a callout box. You can use it to emphasize important information or tips.
+    </div>
+
+    <h2>Card</h2>
+    <div class="card">
+      <h3>Card Title</h3>
+      <p>This is a sample card. Cards are useful for navigation or highlighting content chunks.</p>
+    </div>
+
+    <h2>Poetry Style</h2>
+    <div class="poem">
+      Two roads diverged in a yellow wood,<br>
+      And sorry I could not travel both<br>
+      And be one traveler, long I stood...
+    </div>
+
+    <h2>Timeline</h2>
+    <div class="timeline">
+      <div class="timeline-entry">
+        <time>2007</time>
+        <p>Launched the first version of our platform.</p>
+      </div>
+      <div class="timeline-entry">
+        <time>2012</time>
+        <p>Redesigned with mobile-first principles.</p>
+      </div>
+      <div class="timeline-entry">
+        <time>2025</time>
+        <p>Now exploring new storytelling paradigms.</p>
+      </div>
+    </div>
+
+    <h2>Image Block</h2>
+    <figure class="image-block">
+      <img src="https://source.unsplash.com/random/800x400" alt="Random visual">
+      <figcaption>A sample image with caption using the image-block class.</figcaption>
+    </figure>
+
+    <h2>Section Label</h2>
+    <div class="section-label">End of Demo Section</div>
+
+    <h2>Index Grid</h2>
+    <div class="index-grid">
+      <a href="#" class="card">
+        <h3>Chapter 1</h3>
+        <p>Getting started with reading</p>
+      </a>
+      <a href="#" class="card">
+        <h3>Chapter 2</h3>
+        <p>Understanding the format</p>
+      </a>
+      <a href="#" class="card">
+        <h3>Chapter 3</h3>
+        <p>Going deeper</p>
+      </a>
+    </div>
+
+    <p class="caption">“Style is a way to say who you are without having to speak.”</p>
+    <p class="footnote">* Footnote: This layout is optimized for readability and adaptability.</p>
+  </main>
+
+  <!-- Modal Preview -->
+  <div class="modal-reader" style="display: none;">
+    <div class="content">
+      <button class="close-btn" onclick="this.closest('.modal-reader').style.display='none'">&times;</button>
+      <h2>Modal Content</h2>
+      <p>This is a modal reader for focused reading experiences.</p>
+    </div>
+  </div>
+
+  <button id="go-to-pin" style="display: none;">📌 Go to Pin</button>
+  <script src="/js/app.js" type="module"></script>
+  <script src="/js/sw-offline.js" type="module"></script>
+  <script type="module">
+    import { initApp } from '/js/app.js';
+    import { registerServiceWorker } from '/js/sw-offline.js';
+    initApp();
+    registerServiceWorker();
+  </script>
+</body>
+</html>

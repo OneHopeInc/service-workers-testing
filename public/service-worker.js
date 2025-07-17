@@ -1,9 +1,10 @@
 const CACHE_NAME = 'site-cache-v2';
 const ASSETS_TO_CACHE = [
   '/',              // Home page canonical URL
-  '/style.css',
-  '/test.js',
-  '/other/',        // Other page canonical URL
+  '/index.html',  // Main HTML file
+  '/lesson1.html',
+  '/lesson2.html',        // Other page canonical URL
+  '/lesson3.html',        // Other page canonical URL
   // Add more assets/pages here
 ];
 

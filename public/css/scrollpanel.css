@@ -1,0 +1,31 @@
+.carousel-container {
+  overflow-x: auto;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 200px;
+  background: #00cec9;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.carousel-container.shrink-effect .carousel-item {
+  --shrink-factor: 1;
+  transform: scale(var(--shrink-factor));
+  opacity: calc(0.5 + var(--shrink-factor) * 0.5);
+}

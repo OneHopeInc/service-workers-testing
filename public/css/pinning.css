@@ -1,0 +1,93 @@
+#go-to-pin {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--bg);
+    cursor: pointer;
+    z-index: 1002;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  #go-to-pin:hover {
+    background: var(--accent);
+  }
+
+/* === Base for all pinnables === */
+.pinnable {
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  /* Subtle hover highlight
+  .pinnable:hover {
+    background: rgba(0, 0, 0, 0.03);
+  }
+  
+  body.dark .pinnable:hover {
+    background: rgba(255, 255, 255, 0.05);
+  } */
+  
+  /* Pinned style */
+  .pinned {
+    outline: 1px dashed var(--fg);
+    outline-offset: 6px;
+    border-radius: 8px;
+  }
+  
+  body.dark .pinned {
+  }
+  
+  /* === Fixes for pre/code === */
+  pre.pinnable,
+  code.pinnable {
+    overflow: auto;
+    padding-right: 2.5rem; /* buffer for 📌 icon */
+  }
+  
+  pre.pinned,
+  code.pinned {
+    outline: none; /* Avoid layout shift from outlines */
+    box-shadow: 0 0 0 2px var(--accent) inset;
+    background: rgba(0, 0, 0, 0.04); /* more subtle */
+  }
+  
+  body.dark pre.pinned,
+  body.dark code.pinned {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  /* === Pin animation === */
+  .pin-anim {
+    position: absolute;
+    top: -1.2em;
+    right: -1em;
+    font-size: 1.25rem;
+    opacity: 1;
+    animation: pinFadeIn 0.3s ease;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+  
+  .pin-anim.fade-out {
+    opacity: 0;
+  }
+  
+  @keyframes pinFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minimal Reader</title>
+  <link rel="stylesheet" href="/css/normalize_clean.css">
+  <link rel="stylesheet" href="/css/reader.css">
+  <link rel="stylesheet" href="/css/controls.css">
+  <link rel="stylesheet" href="/css/pinning.css">
+  <link rel="stylesheet" href="/css/minimap.css">
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#317EFB">
+  <link rel="apple-touch-icon" href="/images/icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/icon-512x512.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Reader">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <div id="welcome-modal" class="modal-reader" style="display:none;">
+    <div class="content">
+      <h2>Welcome!</h2>
+      <ul>
+        <li>📌 Come back to a paragraph after scrolling away by tapping on it to save your reading position.</li>
+        <li>🔖 To navigate between sections in a lesson, use the overview menu on the left.</li>
+      </ul>
+      <button id="close-modal" class="close-btn" style="position:static;top:auto;right:auto;background:#2d7ff9;color:#fff;border-radius:6px;padding:0.7em 1.5em;font-size:1rem;">Start reading</button>
+    </div>
+  </div>
+  <div class="minimap" id="minimap"></div>
+  <main id="article">
+    <h1>Welcome to A Better Way to Life</h1>
+    <p>This site works offline and helps you explore life’s big questions.</p>
+    <div class="index-grid">
+      <a href="/lesson1" class="card">
+        <h3>Lesson 1</h3>
+        <p>The Best Version of Yourself & Knowing Your Creator</p>
+      </a>
+      <a href="/lesson2" class="card">
+        <h3>Lesson 2</h3>
+        <p>Turn of Events & The God Who Rescues</p>
+      </a>
+      <a href="/lesson3" class="card">
+        <h3>Lesson 3</h3>
+        <p>The Biggest Mistake of My Life</p>
+      </a>
+    </div>
+  </main>
+  <!-- Settings Toggle Button -->
+  <button id="settings-toggle" aria-label="Toggle reading settings">
+    ⚙️
+  </button>
+  <!-- Settings Panel -->
+  <div id="reader-settings">
+    <div id="sliders">
+        <label for="font-slider" title="Adjust the base font size">Text size</label>
+        <input type="range" id="font-slider" min="14" max="22" value="16" step="1">
+    
+        <label for="line-slider" title="Adjust the vertical spacing between lines">Line height</label>
+        <input type="range" id="line-slider" min="1.4" max="2.2" value="1.8" step="0.1">
+    
+        <label for="width-slider" title="Control the width of the reading column">Column width</label>
+        <input type="range" id="width-slider" min="50" max="90" value="72" step="1">
+    </div>
+    <div id="presets">
+      <button data-font="14" data-line="1.5" data-width="60">Compact</button>
+      <button data-font="16" data-line="1.8" data-width="72">Comfort</button>
+      <button data-font="20" data-line="2.1" data-width="80">Large Print</button>
+    </div>
+  </div>
+  <button id="go-to-pin" style="display: none;">📌 Go to Pin</button>
+  <button id="install-btn" style="display:none;position:fixed;bottom:24px;right:24px;z-index:1000;padding:1em 2em;background:#317EFB;color:#fff;border:none;border-radius:8px;font-size:1.1em;box-shadow:0 2px 8px rgba(0,0,0,0.15);">Install App</button>
+  <script src="/js/app.js" type="module"></script>
+  <script src="/js/sw-offline.js" type="module"></script>
+  <script src="/js/main.js" type="module"></script>
+  <script>
+    // Show welcome modal only on first visit
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!localStorage.getItem('welcomeShown')) {
+        document.getElementById('welcome-modal').style.display = 'flex';
+      }
+      document.getElementById('close-modal').onclick = function() {
+        document.getElementById('welcome-modal').style.display = 'none';
+        localStorage.setItem('welcomeShown', 'yes');
+      };
+    });
+  </script>
+</body>
+</html>

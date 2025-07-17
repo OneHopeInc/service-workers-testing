@@ -1,0 +1,1 @@
+// All logic moved to reader-settings.js

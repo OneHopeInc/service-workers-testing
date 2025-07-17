@@ -1,0 +1,122 @@
+.minimap {
+    position: fixed;
+    top: 0;
+    left: -240px;
+    width: 240px;
+    height: 100vh;
+    padding: var(--space-lg);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    font-size: var(--font-xs);
+    z-index: 999;
+    transition: left 0.4s ease;
+  }
+
+.minimap-item {
+display: flex;
+align-items: center;
+gap: var(--space-xs);
+padding: var(--space-xs) var(--space-sm);
+color: var(--muted);
+text-decoration: none;
+border-radius: var(--radius-md);
+transition: background 0.2s, color 0.2s;
+cursor: pointer;
+}
+
+.minimap-item:hover {
+background-color: var(--code-bg);
+color: var(--fg);
+}
+
+.minimap-item.active {
+background-color: var(--code-bg);
+color: var(--accent);
+font-weight: 800;
+}
+
+.minimap-item.h1 {
+font-size: var(--font-xs);
+font-weight: 600;
+text-transform: uppercase;
+opacity: 0.75;
+}
+
+.minimap-item.h2 {
+font-size: var(--font-sm);
+padding-left: var(--space-md);
+}
+
+.minimap-item.h3 {
+font-size: var(--font-xs);
+padding-left: var(--space-xl);
+}
+
+.minimap-item.h4 {
+font-size: var(--font-xs);
+padding-left: calc(var(--space-lg) + var(--space-sm));
+opacity: 0.9;
+}
+
+.minimap-item.h5 {
+font-size: var(--font-xs);
+padding-left: calc(var(--space-xl));
+opacity: 0.7;
+}
+
+.minimap-item.h6 {
+font-size: var(--font-xs);
+padding-left: calc(var(--space-xl) + var(--space-sm));
+opacity: 0.6;
+}
+
+.minimap-item::before {
+content: '•';
+font-size: 0.7rem;
+color: var(--hr);
+margin-right: var(--space-xs);
+}
+
+.minimap.open {
+left: 0;
+}
+
+#article.dimmed {
+    transform: translateX(280px);
+    opacity: 0.6;
+  }
+
+#navbar.dimmed {
+    transform: translateY(100px);
+    opacity: 0.6;
+}
+
+@media (min-width: 1280px) {
+
+.minimap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 240px;
+}
+
+main {
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+}
+
+main {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+#navbar {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+body {
+    touch-action: pan-y;
+}
