@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "service-workers-testing",
+	"name": "offline-reader",
 	"compatibility_date": "2025-07-03",
 	"assets": {
 		"directory": "./public"
