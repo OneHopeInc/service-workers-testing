@@ -2,48 +2,587 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Multi-View Demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+		<title>OneHope Offline Reader</title>
+		<meta name="description" content="OneHope Offline Reader is a tool for teachers to access comprehensive lesson materials to guide students through life's important spiritual questions.">
 		<link rel="stylesheet" href="/style.css">
-		<style>
-			.view { display: none; }
-			.view.active { display: block; }
-			.nav-btns { margin: 1rem 0; text-align: center; }
-			.nav-btns button { margin: 0 0.5rem; }
-		</style>
 	</head>
 	<body>
-		<h1 id="heading">Multi-View Demo</h1>
-		<div class="nav-btns">
-			<button onclick="showView(1)">View 1</button>
-			<button onclick="showView(2)">View 2</button>
-			<button onclick="showView(3)">View 3</button>
-			<button onclick="showView(4)">View 4</button>
-			<button onclick="showView(5)">View 5</button>
+		<div id="view0" class="view active">
+			<div class="onboarding-content">
+				<div class="onboarding-header">
+					<h1>Welcome, Teachers 🎉</h1>
+					<p>Access comprehensive lesson materials to guide students through life's important spiritual questions.</p>
+				</div>
+				<div class="page-list">
+					<div class="page-card" onclick="showView(1)">
+						<div class="lesson-card-number"><b>Lesson 1</b></div>
+						<div class="lesson-card-title">The Best Version of Yourself</div>
+					</div>
+					<div class="page-card" onclick="showView(2)">
+						<div class="lesson-card-number"><b>Lesson 2</b></div>
+						<div class="lesson-card-title">Turn of Events</div>
+					</div>
+					<div class="page-card" onclick="showView(3)">
+						<div class="lesson-card-number"><b>Lesson 3</b></div>
+						<div class="lesson-card-title">The Biggest Mistake</div>
+					</div>
+					<div class="page-card" onclick="showView(4)">
+						<div class="lesson-card-number"><b>Lesson 4</b></div>
+						<div class="lesson-card-title">Lesson 4</div>
+					</div>
+					<div class="page-card" onclick="showView(5)">
+						<div class="lesson-card-number"><b>Lesson 5</b></div>
+						<div class="lesson-card-title">Lesson 5</div>
+					</div>
+					<div class="page-card" onclick="showView(6)">
+						<div class="lesson-card-number"><b>Lesson 6</b></div>
+						<div class="lesson-card-title">Lesson 6</div>
+					</div>
+					<div class="page-card" onclick="showView(7)">
+						<div class="lesson-card-number"><b>Lesson 7</b></div>
+						<div class="lesson-card-title">Lesson 7</div>
+					</div>
+					<div class="page-card" onclick="showView(8)">
+						<div class="lesson-card-number"><b>Lesson 8</b></div>
+						<div class="lesson-card-title">Lesson 8</div>
+					</div>
+					<div class="page-card" onclick="showView(9)">
+						<div class="lesson-card-number"><b>Lesson 9</b></div>
+						<div class="lesson-card-title">Lesson 9</div>
+					</div>
+					<div class="page-card" onclick="showView(10)">
+						<div class="lesson-card-number"><b>Lesson 10</b></div>
+						<div class="lesson-card-title">Lesson 10</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div id="view1" class="view active"><h2>View 1</h2><p>This is the first view (Home Layer).</p></div>
-		<div id="view2" class="view"><h2>View 2</h2><p>This is the second view.</p></div>
-		<div id="view3" class="view"><h2>View 3</h2><p>This is the third view.</p></div>
-		<div id="view4" class="view"><h2>View 4</h2><p>This is the fourth view.</p></div>
-		<div id="view5" class="view"><h2>View 5</h2><p>This is the fifth view.</p></div>
-		<script>
-			function showView(n) {
-				for (let i = 1; i <= 5; i++) {
-					document.getElementById('view'+i).classList.remove('active');
-				}
-				document.getElementById('view'+n).classList.add('active');
-			}
-			if ('serviceWorker' in navigator) {
-				window.addEventListener('load', function() {
-					navigator.serviceWorker.register('/service-worker.js')
-						.then(function(registration) {
-							console.log('ServiceWorker registration successful with scope: ', registration.scope);
-						}, function(err) {
-							console.log('ServiceWorker registration failed: ', err);
-						});
-				});
-			}
-		</script>
+
+		<div id="view1" class="view">
+			<button class="back-btn" onclick="showView(0)">All Lessons</button>
+			<div class="minimap" id="minimap"></div>
+			<main id="article">
+				<div class="lesson-header">
+					<h1>LESSON 1</h1>
+					<h2>The Best Version of Yourself</h2>
+				</div>
+				<br><br>
+
+				<h2>TEACHER PREPARATION</h2>
+
+				<h3>Lesson Summary</h3>
+				<p>
+				Many teens are asking questions like, <q>Who am I?</q> and <q>Why am I here?</q> These questions can only be answered by our Creator, God. 
+				In today's lesson, we will discover that our identity is rooted in our relationship with God. 
+				When we seek Him, we will find that He has a wonderful plan and purpose for our lives!
+				</p>
+
+				<h3>Scripture References</h3>
+				<blockquote>
+				Jeremiah 1:5; 1 Corinthians 1:20; Matthew 7:7; Psalm 8:3–5; 103:5; 139:7, 13–14, 17–18;  
+				Ephesians 2:10; Acts 17:25, 28–30; Proverbs 2:3–8
+				</blockquote>
+
+				<h3>Lesson Goals</h3>
+				<p>Teens will recall that God created everything, including them, according to His good design in order to have a personal relationship with Him. Teens will reflect on the Scriptures that speak the truth of how much God personally loves and values them.</p>
+
+				<h3>Materials</h3>
+				<p>Paper, Pencil or Pen, <b>Book of Hope: A Better Way to Life</b> (<i>Article:</i> <b>"The Best Version of Yourself"</b> – page 1, <i>Article:</i> <b>"Knowing Your Creator"</b> – pages 2–3)</p>
+
+				<h3>Additional Information</h3>
+				<p>
+				Teens often determine their identity by cultural traditions, family, friends, and the expectations they feel from people in those circles. 
+				Today's lesson will help them define their identity according to their relationship with their Creator, God!
+				</p>
+
+				<hr>
+
+				<h2>INSTRUCTION</h2>
+				<span class="time-tag">20 MINUTES</span>
+
+				<h3>WELCOME</h3>
+				<h3>Say:</h3>
+				<p>Welcome! Over the next few weeks, we will be exploring some of life's hardest questions. As I pass out your books, look through them. Flip through the pages and preview the topics. Once you have looked through the book, go back to the table of contents. Put a mark next to the articles you are most excited to read. In your book, write about why you chose them. Add questions you have about these topics and do not be afraid to write down hard questions! You do not have to share your questions with the class.</p>
+				
+				<h2>TEACHING</h2>
+				<h3>Introduction: <i>Write the focus question on the board: Who are you?</i></h3>
+
+				<h3>Ask:</h3>
+				<p>How do you define yourself? Raise your hand and share the words you might use to talk about who you are. 
+				<i>(Allow teens to respond. If they need help, start with words like, "daughter" or "schoolmate." Write their answers around the focus question.)</i></p>
+
+				<h3>Say:</h3>
+				<p>Many of you used words describing the relationships you have with others, like: "son", "sister" or "friend" or that you are a part of a tribe. You also added the things you do, like: "musician" or "soccer player." And while all of these titles, interests and tribal names do shape you, the core of who you are is deeper. To find out who you truly are and how you should live, you need to look to the One who designed you: your Creator, God.</p>
+
+				<h3>Say:</h3>
+				<p>Now, open your books to <i>"The Best Version of Yourself"</i> on page 1. Follow along as I read and underline anything that stands out to you.</p>
+
+				<h3>Read:</h3>
+				<p><i>"The Best Version of Yourself"</i> on page 1 of the teen book out loud.</p>
+
+				<h3>Ask:</h3>
+				<p>What stood out to you as we read page 1? <i>(Allow teens to respond.)</i></p>
+				<p>When you have big questions about life, where have you looked for answers? Why would it make sense to look to God for the answers?  
+					<blockquote><i>Answers should include: because God made me, He knows everything about me, He has a purpose for my life, the world's wisdom is foolish, etc.</i></blockquote>
+				</p>
+				<p>What does it mean to live wisely?  
+					<blockquote><i>Answers should include: to live according to God's design, in a personal relationship with Him.</i></blockquote>
+				</p>
+
+				<h3>Say:</h3>
+				<p>The world has drifted a long way from God's wisdom, but there is good news: God promises that if you look for Him, you will find Him. Matthew 7:7 says, 
+				<q>Keep on asking, and you will receive what you ask for. Keep on seeking, and you will find. Keep on knocking, and the door will be opened to you.</q></p>
+
+				<h3>Say:</h3>
+				<p>Now, turn to the article, <i>"Knowing Your Creator"</i>, on page 2 in your books where we will learn more about who God is. 
+				As you take turns reading out loud to the class, follow along and circle words that show God's love for you. 
+				Stop when you get to the Selfie Challenge.</p>
+
+				<h3>Read:</h3>
+				<p><i>Have teens take turns reading page 2, "Knowing Your Creator," out loud. Do not have them read the "Selfie Challenge" section yet; it will be read at the end of the lesson.</i></p>
+
+				<h3>Ask:</h3>
+				<p>What words did you underline that show God's love for you? <i>(Allow teens to respond.)</i></p>
+				<p>What does this article tell you about how much God values you? 
+					<blockquote><i>God created amazing things like the moon and stars, but it is people that He crowns with glory and honour; 
+					He cares for you and He knit you together in your mother's womb; He thinks of you constantly; He never leaves you alone.</i></blockquote>
+				</p>
+				<p>What do you think it means that human beings are the masterpiece of God's creation? <i>(Answers will vary.)</i></p>
+				<p>After you read this page, how does it change how you see God and how He sees you? <i>(Answers will vary.)</i></p>
+
+				<h3>Say:</h3>
+				<p>You had some really good answers to those questions. Let us discover what else we will learn as we continue on page 3; 
+				follow along as you take turns reading out loud to the class. Be sure to watch for who God is and what He does.</p>
+
+				<h3>Read:</h3>
+				<p><i>Have teens continue taking turns reading page 3 of "Knowing Your Creator" out loud.</i></p>
+
+				<hr>
+
+				<h2>CLOSING AND REFLECTION <span class="time-tag">10 MINUTES</span></h2>
+
+				<h3>Ask:</h3>
+				<p>Do you ever feel like you do not matter or like you have to earn love? Look back to the words you underlined on page 2. 
+				God's Word is clear. God made you on purpose. You are His work of art. He thinks about you constantly. 
+				He is always with you because He loves you.</p>
+
+				<h3>(Optional Activity)</h3>
+				<p>In the space provided, write a short prayer to God thanking Him for creating you with such care and being present with you always.</p>
+
+				<h3>Prayer:</h3>
+				<div class="callout">
+					<p>God, thank you for your good design. You are the awesome Creator. Thank you for creating us with a purpose and giving us an identity as your masterpiece. Forgive us for forgetting you and looking for satisfaction in other places. Help us to seek you and grow to know you more as we read your Word, the Bible. Help us to show your love to others. Amen.</p>
+				</div>
+
+				<h3>Call to Action / Weekly Challenge</h3>
+				<h3>Say:</h3>
+				<p>Look at the "Selfie Challenge" on page 2 of your book. This week, post a selfie with creation, thanking God in the caption for His great work of art. 
+				Share the image on social media and use this hashtag: <code>#ABetterWaytoLifeAfrica</code></p>
+
+				<p><i>If you do not have a cell phone or social media, give a meaningful comment to someone close to you.</i></p>
+			</main>
+		</div>
+		
+		<div id="view2" class="view">
+			<button class="back-btn" onclick="showView(0)">All Lessons</button>
+			<div class="minimap" id="minimap"></div>
+			<main id="article">
+				<div class="lesson-header">
+					<h1>LESSON 2</h1>
+					<h2>"Turn of Events"<br>"The God Who Rescues"</h2>
+				</div>
+				<br><br>
+
+				<h2>TEACHER PREPARATION</h2>
+
+				<h3>Lesson Summary</h3>
+				<p>Our world is full of brokenness. Your teens see the brokenness in society; they feel it in their homes and even within their own hearts. 
+				What they might not realise is that all of this brokenness is the result of sin: humanity's rejection of God and His wisdom. 
+				In today's lesson, we will discuss how pain, suffering, and injustice are all a consequence of Adam and Eve's sin. 
+				Our purpose, identity, relationships, and our world are all broken because of it. 
+				We desperately need God to rescue us from our sin and bring us back to the right path.</p>
+
+				<h3>Scripture References</h3>
+				<blockquote>
+				Genesis 1–3; Proverbs 14:12; Judges 17:6; Romans 1:21, 25, 28; 5:12; Luke 19:10;  
+				Psalm 40:1, 4–5, 8, 11–13, 16–17
+				</blockquote>
+
+				<h3>Lesson Goals</h3>
+				<p>Teens will discuss the consequences of the sin of Adam and Eve to all of humanity. Teens will identify the ways in which God rescues them as written in Psalm 40.</p>
+
+				<h3>Materials</h3>
+				<p><b>Book of Hope: A Better Way to Life</b> (<i>Article:</i> "Turn of Events" – pages 4–5, <i>Article:</i> "The God Who Rescues" – pages 6–7)</p>
+
+				<h3>Additional Information</h3>
+				<p>Even as we discuss difficult topics like pain and suffering, we want to remind our teens of hope. 
+				Every conversation we have about sin should include the hope we have in God: He saves us and makes a way for us to have a right relationship with Him.</p>
+
+				<hr>
+
+				<h2>INSTRUCTION</h2>
+				<span class="time-tag">5 MINUTES</span>
+
+				<h3>WELCOME</h3>
+				<p>Welcome the teens back to class. Ask them if they did the "Selfie Challenge" and if they got any responses. 
+				Ask those who chose to compliment a friend what the response was from their friend. Thank them for sharing.</p>
+
+				<h2>REVIEW</h2>
+				<span class="time-tag">5 MINUTES</span>
+
+				<h3>Say:</h3>
+				<p>In our last lesson, we talked about how God created everything in the world, including you, according to His good design.</p>
+
+				<h3>Ask:</h3>
+				<p>But why did God create you?  
+					<blockquote><i>Answer should include: to have a personal relationship with Him.</i></blockquote>
+				</p>
+				<p>Can you tell me something you learned about God's love for you from page 2 in your book?  
+					<i>(Answers will vary.)</i>
+				</p>
+
+				<h3>Say:</h3>
+				<p>God loves you. He created you and all humanity, according to His good design, to enjoy a relationship with Him and each other.</p>
+				<p>In our lesson today, we will go back to the beginning when everything was created, and it was good. The world we see today is much different. 
+				We are surrounded by pain and suffering. Can anything be done to make things right? <b>Yes! God had a plan!</b></p>
+
+				<hr>
+
+				<h2>GAME</h2>
+				<span class="time-tag">10 MINUTES</span>
+
+				<h3>Life Experiences Activity</h3>
+				<blockquote>
+				Have teens stand up. You will read a statement and the teens will sit down if they have experienced it. 
+				Before you move on to the next statement, have all of the teens stand back up again. 
+				As the class plays the game, everyone should have a reason to sit down. 
+				Once they understand how the game works, use the following statements:
+				</blockquote>
+
+				<h3>Say:</h3>
+				<p>Everyone please stand up. Sit down in your chair if you agree with the statement I read out loud.</p>
+
+				<ol>
+					<li>You have missed a bus.</li>
+					<li>You have lost something important to you.</li>
+					<li>Someone has spread a rumour about you or your friends.</li>
+					<li>You have repeated a rumour about your friends.</li>
+					<li>Someone has stolen something from you before, or you have stolen something.</li>
+					<li>Someone you believed was a close friend has betrayed you.</li>
+				</ol>
+
+				<h3>Say:</h3>
+				<p>Chances are you sat down at least once. This activity demonstrates that we have all done and experienced bad things. 
+				This is not part of God's design. It is the result of people rejecting God and choosing to live their own way. 
+				God's Word calls this "sin" and today we are going to talk about how sin first entered God's good world.</p>
+
+				<hr>
+
+				<h2>TEACHING</h2>
+				<span class="time-tag">30 MINUTES</span>
+
+				<h3>Introduction:</h3>
+				<p><i>Write the focus question on the board: What happens when people follow their own ways and reject their Creator's ways?</i></p>
+
+				<h3>Say:</h3>
+				<p>The story we will read today is going to explain why the world is full of suffering and brokenness. 
+				As we read, think about this focus question: 
+				<q>What happens when people follow their own ways and reject their Creator's ways?</q> 
+				Turn to page 4 in your books and follow along as I read the first paragraph of <i>"Turn of Events"</i> out loud.</p>
+
+				<h3>Read:</h3>
+				<p><i>the first paragraph of "Turn of Events" on page 4 out loud.</i></p>
+
+				<h3>Ask:</h3>
+				<p>Think about your favourite stories or movies. Do they have a plot twist? Raise your hand and tell us about it. <i>(Allow a few teens to respond.)</i></p>
+
+				<h3>Say:</h3>
+				<p>Those were some interesting plot twists! Follow along in your books through page 5 as you take turns quietly reading out loud in groups of two or three. 
+				Look out for the plot twist.</p>
+
+				<h3>Read:</h3>
+				<p><i>Have teens finish reading "Turn of Events" on pages 4–5 quietly out loud in groups of two or three.</i></p>
+
+				<h3>Ask:</h3>
+				<p>What choice did Adam and Eve have?  
+					<blockquote><i>Answers should include: to trust their Creator to guide them into the fullness of life or to reject their Creator by taking the fruit and seeking to make their own way in the world.</i></blockquote>
+				</p>
+				<p>What were the consequences of Adam and Eve's choice to take the knowledge of good and evil?  
+					<blockquote><i>Answers should include: Their relationships with God and others were broken. Sin spread like a disease to everyone. Death entered the world.</i></blockquote>
+				</p>
+				<p>What happens when everyone "does what is right in their own eyes"? How have you seen this play out in the world today?  
+					<i>(Answers will vary.)</i>
+				</p>
+				<p>What is the hope that is offered at the end of the story?  
+					<blockquote><i>Answers should include: The hope is that God does not leave us lost and separated from Him. He had a plan to rescue us.</i></blockquote>
+				</p>
+
+				<h3>Say:</h3>
+				<p>Many of us think of sin as a mistake. But this story shows us that sin is more than a bad choice: 
+				It is a rejection of doing life God's way. Sin is a condition of the heart that wants to rebel against God. 
+				Sin separates us from God and leads to death. Because of sin, we experience pain and sorrow. 
+				We desperately need God to rescue us from our sin and bring us back to the better path.</p>
+
+				<h3>Say:</h3>
+				<p>Now, turn to page 6 as we read a psalm from the Bible. Psalms are poetic prayers and songs written by various people as a way to express their emotions to God. 
+				This psalm was written by King David who experienced first-hand just how much suffering sin can cause. 
+				He knew that his only hope for rescue was in God. As you listen, follow along and circle words that describe God's character or actions as our rescuer.</p>
+
+				<h3>Read:</h3>
+				<p><i>"The God Who Rescues" on pages 6–7 out loud.</i></p>
+
+				<h3>Ask:</h3>
+				<p>Look back at the words you circled. What words from this psalm describe who God is?  
+					<blockquote><i>Answers should include: helper, trustworthy, no equal, rescuer, saviour</i></blockquote>
+				</p>
+
+				<hr>
+
+				<h2>CLOSING AND REFLECTION</h2>
+				<span class="time-tag">10 MINUTES</span>
+
+				<h3>Say:</h3>
+				<p>Though sin corrupted our world, God promises to save us. This psalm expresses that great hope, and now you can express your feelings to God, too. 
+				In the empty space on page 6, write a one-sentence prayer to God. 
+				If you are not sure what you feel, ask God to show Himself to you over the next few weeks as you study the Bible.</p>
+
+				<h3>Prayer:</h3>
+				<div class="callout">
+					<p>Thank you, God, for the hope we have that you will rescue us from the evil of sin. 
+					Even when our world seems hopeless, help us to remember the hope we have in you. Amen.</p>
+				</div>
+
+				<h3>Call to Action / Weekly Challenge</h3>
+				<h3>Say:</h3>
+				<p>The best way to grow more in our relationship with God is to read the Bible and talk to Him through prayer. 
+				This week, your challenge is to read Psalm 40 every day. 
+				Come back to class ready to share something God taught you through this psalm!</p>
+			</main>
+		</div>
+
+		<div id="view3" class="view">
+			<button class="back-btn" onclick="showView(0)">All Lessons</button>
+			<div class="minimap" id="minimap"></div>
+			<main id="article">
+				<div class="lesson-header">
+					<h1>LESSON 3</h1>
+					<h2>"The Biggest Mistake of My Life"</h2>
+				</div>
+				<br><br>
+
+				<h2>TEACHER PREPARATION</h2>
+
+				<h3>Lesson Summary</h3>
+				<p>Research shows that teens spend hours on social media and online, and are turning to social media to find affirmation and a sense of identity. 
+				Instead, they experience comparison, restlessness, and even addiction. 
+				Only God can give your teens satisfaction, joy, and rest. In today's lesson, we will discuss a scenario that contains sensitive content. 
+				We want to encourage teens to interact with social media in healthy ways and help them overcome their addictions.</p>
+
+				<h3>Scripture References</h3>
+				<blockquote>
+				Romans 7:18–19, 21–25; Galatians 2:20; 1 Corinthians 10:13; Psalm 34:18
+				</blockquote>
+
+				<h3>Lesson Goals</h3>
+				<p>Teens will discover that a relationship with God will help them fight the battle with sin within them. Teens will explore healthy ways of interacting with social media.</p>
+
+				<h3>Materials</h3>
+				<p>Paper, Pencil or Pen, <b>Book of Hope: A Better Way to Life</b> – <i>Article:</i> "The Biggest Mistake of My Life" – pages 8–9</p>
+
+				<h3>Additional Information</h3>
+				<p>African teens are spending more time online than the global average. These online communities provide quantity, but not necessarily quality, of connection. Online relationships are often filtered and can't replace real-world connection. Today's article includes a reference to nudity. Use discretion, and redirect inappropriate discussion. Speak privately with a student if needed. All addictions—whether media, substance, or behavior—are based on the lie that something other than God will satisfy. While the form differs, the root is the same: <b>sinful nature</b>. Jesus is our way to freedom. This lesson may lead to quiet reflection more than open discussion. Be sensitive to what teens are willing to share.</p>
+
+				<hr>
+
+				<h2>INSTRUCTION</h2>
+
+				<h3>WELCOME</h3>
+				<span class="time-tag">5 MINUTES</span>
+				<p><i>Welcome the teens back to class. Ask them to share what God taught them through Psalm 40. Thank them for sharing.</i></p>
+
+				<h2>REVIEW</h2>
+				<span class="time-tag">5 MINUTES</span>
+
+				<h3>Say:</h3>
+				<p>Last week, we read about how Adam and Eve chose to rebel against God.</p>
+
+				<h3>Ask:</h3>
+				<p>What were the consequences of Adam and Eve's choice to take the knowledge of good and evil?  
+					<blockquote><i>Answers should include: Their relationships with God and others were broken. Sin spread like a disease to everyone. Death entered the world.</i></blockquote>
+				</p>
+				<p>What happens when everyone "does what is right in their own eyes"?  
+					<i>(Answers will vary.)</i>
+				</p>
+
+				<h3>Say:</h3>
+				<p>Sin entered the world. We still feel the effects of that choice today. But sin is more than one choice two people made a long time ago.</p>
+				<p>Each of us is guilty of rebelling against God. Our sinful nature leads us to do things we know are bad for ourselves and others, but we cannot make ourselves stop! 
+				Even though we know our addictions to social media, substances, or behaviors are wrong, we cannot quit them. 
+				It can feel like a battle inside that we are not strong enough to fight on our own.</p>
+
+				<p><b>But here's the good news:</b> We don't have to fight alone. God knows our weaknesses, and He will help us do what we cannot do by ourselves. 
+				God gives us a new nature, and by His power, we can be free!</p>
+
+				<hr>
+
+				<h2>GAME</h2>
+				<span class="time-tag">10 MINUTES</span>
+
+				<h3>Two Truths and a Lie</h3>
+				<blockquote>
+				Create groups of 2–3. Each teen will share two truths and one lie about themselves. The others guess the lie.
+				</blockquote>
+
+				<h3>Say:</h3>
+				<p>Raise your hand if you were able to trick your classmates. This game helps us get to know each other better, but also teaches an important lesson: 
+				It is easy to pretend to be someone you are not. This is especially true on social media.</p>
+
+				<hr>
+
+				<h2>TEACHING</h2>
+				<span class="time-tag">30 MINUTES</span>
+
+				<h3>Introduction:</h3>
+				<p><i>Write the focus questions on the board: Why are we so influenced by other people's approval? Why do we do things we know are bad for us and others?</i></p>
+
+				<h3>Say:</h3>
+				<p>Today you tried to see if your friends were telling the truth or a lie. 
+				We do this in games—but many of us believe lies in real life. 
+				Maybe you lie on social media to fit in. Or maybe you believe the lie that doing something wrong won't have a consequence.</p>
+
+				<h3>Ask:</h3>
+				<p>Why is it that even when we know the right thing to do, we still feel the impulse to do wrong?  
+					<i>(Answers will vary.)</i>
+				</p>
+
+				<h3>Say:</h3>
+				<p>Sin is the reason we do things that are bad for us. Sin twists our desires and leads us toward destructive behavior. 
+				This generation faces a challenge older generations didn't have: the internet. It can be used for good, but also leads to sin in new ways.</p>
+
+				<h3>Activity:</h3>
+				<blockquote>
+				Draw a vertical line on the board. Write "The Positive and Negative Things about Social Media."  
+				In one column, write "Positive." In the other, write "Negative."
+				</blockquote>
+
+				<h3>Say:</h3>
+				<p>Raise your hand and share something good that social media brings into your life—or a negative way it can influence you.</p>
+
+				<p><b>Positive:</b> <i>connects us to distant family, teaches new topics, recipes, fashion, music</i></p>
+				<p><b>Negative:</b> <i>bullying, comparison, wasted time, loneliness, addiction</i></p>
+
+				<h3>Say:</h3>
+				<p>You're about to read a text conversation between two friends about a sensitive topic. They express regret, but also hope. 
+				Read pages 8–9 of <i>"The Biggest Mistake of My Life"</i> silently. After reading, reflect on what connected with you.</p>
+
+				<h3>Read:</h3>
+				<p><i>Have teens read pages 8–9 silently.</i></p>
+
+				<h3>Say:</h3>
+				<p>We all want to feel happy, loved, and satisfied. But looking to things instead of our Creator never works. That's addiction: 
+				using something over and over, hoping it'll make you feel better. But only God gives satisfaction that lasts.</p>
+
+				<h3>Ask:</h3>
+				<p>Ada said she "<i>tried but could not stop</i>" her behaviors. What happens when someone is addicted? Why do addictions happen? <i>(Answers will vary.)</i></p>
+				<p>Zora found words in the Bible that described her internal battle. What is she talking about? Can you relate? <i>(Answers will vary.)</i></p>
+				<p>How does Zora describe the change she experienced?  
+					<blockquote><i>Answers should include: Zora describes God transforming her when she believed in Jesus; an old part of her died, and something new came alive in her; Jesus now lives in her, and she trusts in Him.</i></blockquote>
+				</p>
+				<p>How can we fight the battle with sin within us?  
+					<blockquote><b>Answer:</b> By having a relationship with God and trusting in Jesus.</blockquote>
+				</p>
+			</main>
+		</div>
+
+		<div id="view4" class="view">
+			<button class="back-btn" onclick="showView(0)">All Lessons</button>
+			<div class="lesson-header">
+				<h1>LESSON 4</h1>
+				<h2>"Lesson 4 Title"</h2>
+			</div>
+			<p>This is the fourth view.</p>
+		</div>
+
+		<div id="view5" class="view">
+			<button class="back-btn" onclick="showView(0)">All Lessons</button>
+			<div class="lesson-header">
+				<h1>LESSON 5</h1>
+				<h2>"Lesson 5 Title"</h2>
+			</div>
+			<p>This is the fifth view.</p>
+		</div>
+
+		<div id="view6" class="view">
+			<button class="back-btn" onclick="showView(0)">All Lessons</button>
+			<div class="lesson-header">
+				<h1>LESSON 6</h1>
+				<h2>"Lesson 6 Title"</h2>
+			</div>
+			<p>This is lesson 6 content.</p>
+		</div>
+
+		<div id="view7" class="view">
+			<button class="back-btn" onclick="showView(0)">All Lessons</button>
+			<div class="lesson-header">
+				<h1>LESSON 7</h1>
+				<h2>"Lesson 7 Title"</h2>
+			</div>
+			<p>This is lesson 7 content.</p>
+		</div>
+
+		<div id="view8" class="view">
+			<button class="back-btn" onclick="showView(0)">All Lessons</button>
+			<div class="lesson-header">
+				<h1>LESSON 8</h1>
+				<h2>"Lesson 8 Title"</h2>
+			</div>
+			<p>This is lesson 8 content.</p>
+		</div>
+
+		<div id="view9" class="view">
+			<button class="back-btn" onclick="showView(0)">All Lessons</button>
+			<div class="lesson-header">
+				<h1>LESSON 9</h1>
+				<h2>"Lesson 9 Title"</h2>
+			</div>
+			<p>This is lesson 9 content.</p>
+		</div>
+
+		<div id="view10" class="view">
+			<button class="back-btn" onclick="showView(0)">All Lessons</button>
+			<div class="lesson-header">
+				<h1>LESSON 10</h1>
+				<h2>"Lesson 10 Title"</h2>
+			</div>
+			<p>This is lesson 10 content.</p>
+		</div>
+		
+		<!-- Fixed Navigation Pill -->
+		<div id="lesson-nav-pill" class="lesson-nav-pill">
+			<button class="nav-chevron nav-prev" onclick="navigateLesson(-1)">
+				<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<polyline points="15,18 9,12 15,6"></polyline>
+				</svg>
+			</button>
+			<span class="lesson-number">Lesson #</span>
+			<button class="nav-chevron nav-next" onclick="navigateLesson(1)">
+				<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<polyline points="9,18 15,12 9,6"></polyline>
+				</svg>
+			</button>
+			<button id="burger-menu-btn" class="burger-menu-btn" aria-label="Cycle line height" onclick="cycleLineHeight()">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="4" y1="6" x2="20" y2="6" />
+					<line x1="4" y1="12" x2="20" y2="12" />
+					<line x1="4" y1="18" x2="20" y2="18" />
+				</svg>
+			</button>
+			<button type="button" class="text-size-btn" aria-label="Decrease text size" onclick="changeTextSize(-1)"><span style="font-size:13px;">A</span></button>
+			<button type="button" class="text-size-btn" aria-label="Increase text size" onclick="changeTextSize(1)"><span style="font-size:16px;">A</span></button>
+			<!-- The pin button will be injected here by JS -->
+		</div>
+		<script src="/view-controller.js"></script>
 	</body>
 </html>
 

@@ -1,9 +1,9 @@
-const CACHE_NAME = 'site-cache-v2';
+const CACHE_NAME = 'site-cache-v4';
 const ASSETS_TO_CACHE = [
   '/',              // Home page canonical URL
   '/style.css',
   '/test.js',
-  '/other/',        // Other page canonical URL
+  '/view-controller.js',  // View controller script
   // Add more assets/pages here
 ];
 
@@ -47,6 +47,13 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   let request = event.request;
   const url = new URL(request.url);
+  const requestUrl = request.url; // Store the original URL for logging
+
+  // Skip external requests (like Google Fonts) - let them go to network
+  if (url.origin !== location.origin) {
+    console.log(`[SW] External request, letting it go to network: ${requestUrl}`);
+    return;
+  }
 
   // Handle navigation requests for multipage support
   if (request.mode === 'navigate') {
@@ -71,15 +78,15 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(request).then(response => {
       if (response) {
-        console.log(`[SW] Serving from cache: ${request}`);
+        console.log(`[SW] Serving from cache: ${requestUrl}`);
         return response;
       }
       return fetch(request).then(networkResponse => {
         if (networkResponse.ok && !networkResponse.redirected) {
-          console.log(`[SW] Fetched from network: ${request}`);
+          console.log(`[SW] Fetched from network: ${requestUrl}`);
           return networkResponse;
         } else {
-          console.warn(`[SW] Network fetch failed or redirected: ${request}`);
+          console.warn(`[SW] Network fetch failed or redirected: ${requestUrl}`);
           if (event.request.mode === 'navigate') {
             return caches.match('/').then(fallback => {
               if (fallback) {
@@ -95,7 +102,7 @@ self.addEventListener('fetch', event => {
           return new Response('', { status: 404, statusText: 'Not Found' });
         }
       }).catch(err => {
-        console.error(`[SW] Fetch error for: ${request}`, err);
+        console.error(`[SW] Fetch error for: ${requestUrl}`, err);
         if (event.request.mode === 'navigate') {
           return caches.match('/').then(fallback => {
             if (fallback) {
