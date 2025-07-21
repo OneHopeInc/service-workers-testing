@@ -1,47 +1,613 @@
+/* CSS Custom Properties for theming */
+:root {
+  /* Light mode colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafafa;
+  --bg-tertiary: #f5f5f5;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-tertiary: #666666;
+  --text-heading: #000000;
+  --border-primary: #e0e0e0;
+  --border-secondary: #d0d0d0;
+  --border-accent: #c0c0c0;
+  --accent-primary: #3b82f6;
+  --accent-light: #60a5fa;
+  --accent-very-light: #e0f2fe;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.1);
+  --code-bg: #f8f8f8;
+  --callout-bg: var(--accent-very-light);
+  --callout-border: var(--accent-primary);
+  --callout-text: var(--text-primary);
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #000000;
+    --bg-secondary: #111111;
+    --bg-tertiary: #222222;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-tertiary: #999999;
+    --text-heading: #ffffff;
+    --border-primary: #333333;
+    --border-secondary: #333333;
+    --border-accent: #444444;
+          --accent-primary: #60a5fa;
+    --accent-light: #93c5fd;
+    --accent-very-light: #1e3a8a;
+    --shadow-light: rgba(0, 0, 0, 0.5);
+    --shadow-medium: rgba(0, 0, 0, 0.6);
+    --code-bg: #111111;
+    --callout-bg: var(--accent-very-light);
+    --callout-border: var(--accent-primary);
+    --callout-text: var(--text-primary);
+  }
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background: #f0f0f0;
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
   margin: 0;
   padding: 0;
+  background: var(--bg-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 1em;
 }
 
-#heading {
-  color: #2a7ae2;
-  text-align: center;
-  margin-top: 2rem;
+/* Typography */
+h1 { font-size: 2em; }
+h2 { font-size: 1.75em; }
+h3 { font-size: 1.25em; }
+h4 { font-size: 1.1em; }
+
+p {
+  font-size: 1em;
+  line-height: inherit;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
 }
 
-.nav-btns {
-  margin: 1rem 0;
-  text-align: center;
-}
-
-.nav-btns button {
-  margin: 0 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  background: #2a7ae2;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.nav-btns button:hover {
-  background: #185a9d;
-}
-
+/* Layout */
 .view {
-  background: #fff;
-  margin: 2rem auto;
-  padding: 2rem;
-  max-width: 500px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
   display: none;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .view.active {
   display: block;
+}
+
+/* Content spacing for lesson views */
+.view:not(#view0) {
+  padding-top: 5vh;
+}
+
+/* Move onboarding content 1/4 down the screen on view0 */
+#view0 .onboarding-content {
+  margin-top: 25vh;
+}
+
+/* Add space between description and lessons */
+#view0 .onboarding-content p {
+  margin-bottom: 4rem;
+}
+
+/* Layout for onboarding content on view0: center header, pin lessons to bottom */
+#view0 .onboarding-content {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  min-height: 500px;
+  justify-content: space-between;
+  margin-top: 0;
+}
+#view0 .onboarding-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 auto;
+  margin-top: 0;
+}
+#view0 .onboarding-header h1,
+#view0 .onboarding-header p {
+  margin: 0;
+}
+#view0 .onboarding-header h1 {
+  margin-bottom: 1.5rem;
+}
+#view0 .onboarding-header p {
+  margin-bottom: 0;
+  font-size: 1.15rem;
+  font-style: italic;
+}
+#view0 .page-list {
+  margin-bottom: 0;
+}
+
+/* Navigation */
+.nav-btns {
+  margin: 2rem 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.nav-btns button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid var(--border-primary);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px var(--shadow-light);
+  min-width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btns button:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border-accent);
+  color: var(--text-secondary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.nav-btns button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+/* Back button */
+.back-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 25vh;
+}
+
+.back-btn:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+}
+
+/* Onboarding */
+.onboarding-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.page-card {
+  border: 2px solid var(--border-secondary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 80px;
+}
+
+.page-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background: var(--bg-tertiary);
+}
+
+.page-card h3 {
+  margin: 0;
+  color: var(--text-heading);
+  width: 100%;
+}
+
+.page-card p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.lesson-card-number {
+  font-weight: semibold;
+  font-size: 1.1em;
+  margin-bottom: 0.25em;
+}
+
+.lesson-card-title {
+  font-weight: normal;
+  font-size: 1em;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+/* Make lesson cards on view0 have appropriate background and border for current theme */
+#view0 .page-card {
+  background: var(--bg-primary);
+  border-color: var(--border-primary);
+}
+
+/* Lesson Content Elements */
+/* Callout boxes (for prayers, important notes, etc.) */
+.callout {
+  background: var(--callout-bg);
+  border-left: 4px solid var(--callout-border);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.callout p {
+  margin: 0;
+  color: var(--callout-text);
+  font-style: italic;
+}
+
+/* Blockquotes */
+blockquote {
+  font-style: italic;
+  border-left: 4px solid var(--accent-primary);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  color: var(--text-tertiary);
+}
+
+/* Lists */
+ul, ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Code elements */
+code {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', Consolas, monospace;
+  background: var(--code-bg);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text-primary);
+}
+
+pre {
+  background: var(--bg-tertiary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid var(--border-primary);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Dividers */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border-primary);
+  margin: 2rem 0;
+}
+
+/* Time tag styling */
+.time-tag {
+  display: block;
+  background: var(--accent-light);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  width: fit-content;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-btns button {
+    min-width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .view {
+    padding: 1.5rem;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  
+  #view0 .onboarding-header p {
+    font-size: 1rem;
+  }
 } 
+
+.lesson-header {
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+.lesson-header h1 {
+  margin-bottom: 0.5rem;
+}
+.lesson-header h2 {
+  margin-top: 0;
+  font-weight: 400;
+  font-style: italic;
+} 
+
+/* Fixed Navigation Pill (smaller version) */
+.lesson-nav-pill {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 25px;
+  padding: 0.35rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 6px var(--shadow-medium);
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+  min-height: 28px;
+  min-width: 120px;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity 0.2s, transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.lesson-nav-pill:hover {
+  box-shadow: 0 3px 8px var(--shadow-medium);
+  transform: translateX(-50%) translateY(-1px);
+}
+
+.lesson-number {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  min-width: 48px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Navigation pill chevrons */
+.nav-chevron {
+  background: var(--bg-primary);
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  min-width: 20px;
+  height: 20px;
+}
+
+.nav-chevron svg {
+  width: 12px;
+  height: 12px;
+}
+
+.nav-chevron:hover, .nav-chevron:focus {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  transform: scale(1.08);
+}
+
+.nav-chevron:active {
+  transform: scale(0.95);
+}
+
+.nav-chevron:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.nav-chevron:disabled:hover {
+  background: none;
+  transform: none;
+}
+
+/* Burger menu button */
+.burger-menu-btn {
+  background: var(--bg-primary);
+  border: 1.5px solid var(--border-primary);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  outline: none;
+  margin-left: 0.25rem;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.burger-menu-btn:hover, .burger-menu-btn:focus {
+  background: var(--bg-secondary);
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+}
+.lesson-nav-pill .burger-menu-btn svg {
+  width: 16px;
+  height: 16px;
+  color: inherit;
+}
+
+/* Text size buttons */
+.text-size-btn {
+  background: var(--bg-primary);
+  border: 1.5px solid var(--border-primary);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+}
+.text-size-btn:hover, .text-size-btn:focus {
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+.lesson-nav-pill .text-size-btn span {
+  color: inherit;
+}
+.lesson-nav-pill .text-size-btn:last-of-type span {
+  font-size: 16px !important;
+}
+
+/* Hide navigation pill on the main menu (view0) */
+#view0.active ~ .lesson-nav-pill {
+  display: none;
+}
+
+/* Show the lesson-nav-pill when at the bottom of the page */
+.lesson-nav-pill.show-at-bottom {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transition: opacity 0.3s;
+}
+
+/* Hide the pill when scrolling down (unless at bottom) */
+.lesson-nav-pill.hide-by-scroll {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+/* Remove settings drawer and text-size-controls styles */
+/* .settings-drawer, .settings-drawer-content, .setting-group, .text-size-controls { display: none !important; } */
+
+/* Pin emoji next to pinned element */
+.pinned-emoji {
+  font-size: 1.1em;
+  vertical-align: middle;
+  margin-left: 0.5em;
+  pointer-events: none;
+}
+
+/* Highlight effect for pinned element */
+.pinned-highlight {
+  background: var(--accent-very-light, #fff9c4);
+  transition: background 0.5s;
+  border-radius: 6px;
+  animation: fadeHighlight 1.5s forwards;
+}
+
+@keyframes fadeHighlight {
+  0% {
+    background: var(--accent-very-light, #fff9c4);
+  }
+  80% {
+    background: var(--accent-very-light, #fff9c4);
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+/* Pin button OUTSIDE the pill */
+#pill-bar-container {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.pill-pin-btn {
+  background: var(--bg-primary);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+  font-size: 0.75em;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+.pill-pin-btn:hover, .pill-pin-btn:focus {
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+@media (max-width: 600px) {
+  .pill-pin-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9em;
+  }
+}
